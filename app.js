@@ -11,7 +11,7 @@ const routes = {
   'badRoute': () => ({message: 'Route is not supported'})
 }
 
-const mwRouter = async (ctx, next) => {
+const mwRouter = (ctx, next) => {
   const [, path] = ctx.path.split('/');
   ctx.state.func = routes[path] || routes['badRoute'];
   next();
